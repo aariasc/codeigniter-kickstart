@@ -83,3 +83,15 @@ define('EXIT_USER_INPUT', 7); // invalid user input
 define('EXIT_DATABASE', 8); // database error
 define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+
+/** Custom constants **/
+
+// SEO Stuff
+define('SITE_DEFAULT_TITLE','Super Cool Title');
+define('SEO_META_DESCRIPTION','Some nice description for search engines');
+define('SEO_META_KEYWORDS','keyword1, keyword2, keywordN');
+define('SEO_AUTHOR','iluv2code');
+
+//User session
+define('SESSION_PUBLIC_SITE','logged_in');
