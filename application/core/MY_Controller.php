@@ -68,21 +68,24 @@ class MY_Controller extends CI_Controller{
     $template_data["css"] = $this->css;
     $template_data["fonts"] = $this->fonts;
 
-    //Fill SEO metadata
+    //Fill SEO metadata and page title
     $template_data["title"] = $this->title;
     $template_data["meta_description"] = $this->description;
     $template_data["meta_keywords"] = $this->keywords;
     $template_data["author"] = $this->author;
 
-    $header_data["basejs"] = $this->load->view("template/basejs",$this->data,true);
+    //Load base js and css
+    $template_data["basejs"] = $this->load->view("template/base_js",$this->data,true);
+    $template_data["basecss"] = $this->load->view("template/base_css",$this->data,true);
 
+    //Load the specific view, with its specific $data map, combined with the template's
     $body_data["body"] = $this->load->view($view,array_merge($this->data,$template_data),true);
 
     //Header (e.g. navigation)
-    $body_data["header"] = $this->load->view("template/header",$header_data,true);
+    $body_data["header"] = $this->load->view("template/header",array_merge($this->data,$template_data),true);
 
     //Footer (e.g. copyright info or so on)
-    $body_data["footer"] = $this->load->view("template/desktop/footer",'',true);
+    $body_data["footer"] = $this->load->view("template/footer",array_merge($this->data,$template_data),true);
 
     $this->load->view("template/base_template",array_merge($this->data,$body_data));
   }
